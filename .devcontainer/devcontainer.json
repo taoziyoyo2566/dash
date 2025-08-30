@@ -1,0 +1,29 @@
+{
+  "name": "nextjs-frontend",
+  // Node 22 LTS 的官方开发容器镜像（含常用工具链）
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bullseye",
+
+  // 映射 Next 开发端口
+  "forwardPorts": [3000],
+
+  // 加速 npm：把缓存放进匿名卷，避免每次装依赖都拉全量
+  "mounts": ["source=npm-cache,target=/home/node/.npm,type=volume"],
+
+  // 容器首次创建后执行：用锁文件精确安装依赖（与团队保持一致）
+  "postCreateCommand": "npm ci",
+
+  // 推荐 VS Code 扩展与设置（容器内生效）
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "files.eol": "\n"
+      }
+    }
+  }
+}
