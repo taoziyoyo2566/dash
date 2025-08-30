@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "react": "19.1.0",
@@ -24,5 +25,6 @@
     "eslint-config-next": "15.5.2",
     "@eslint/eslintrc": "^3"
   },
+  "engines": { "node": "22.x" },
   "packageManager": "npm@10.9.0"
 }
